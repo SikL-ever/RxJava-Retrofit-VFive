@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ShowActivity"
+    android:background="#fff">
+    <RelativeLayout
+        android:visibility="gone"
+        android:background="@drawable/layout_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toplayout">
+        <ImageView
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
+            android:id="@+id/user_top_image"/>
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/common_nav_message_black_n"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_25"
+            android:id="@+id/user_top_message"/>
+    </RelativeLayout>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/show_fragment"></FrameLayout>
+
+
+    <RadioGroup
+        android:id="@+id/show_radio"
+        android:background="@drawable/the_bottom_bar"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/show_home_bt"
+            android:layout_marginTop="@dimen/dp_2"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/dp_40"
+            android:layout_marginLeft="@dimen/dp_40"
+            android:checked="true"
+            android:background="@drawable/page_home"
+            android:gravity="center"
+            android:layout_width="@dimen/dp_30"
+            android:layout_height="@dimen/dp_30"
+            android:button="@null"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"></View>
+        <RadioButton
+            android:id="@+id/show_xin_one"
+            android:background="@drawable/common_tab_circle_n"
+            android:gravity="center"
+            android:layout_width="@dimen/dp_45"
+            android:layout_height="@dimen/dp_45"
+            android:button="@null"/>
+        <RadioButton
+            android:id="@+id/show_xin_two"
+            android:visibility="gone"
+            android:background="@drawable/common_tab_circle_s"
+            android:gravity="center"
+            android:layout_width="@dimen/dp_45"
+            android:layout_height="@dimen/dp_45"
+            android:button="@null"/>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"></View>
+        <RadioButton
+            android:id="@+id/show_void_bt"
+            android:layout_marginTop="@dimen/dp_2"
+            android:background="@drawable/page_video"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/dp_40"
+            android:layout_marginLeft="@dimen/dp_40"
+            android:gravity="center"
+            android:layout_width="@dimen/dp_30"
+            android:layout_height="@dimen/dp_30"
+            android:button="@null"/>
+    </RadioGroup>
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/show_botton_layout"
+        android:background="#000"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_15"
+        android:layout_alignParentBottom="true">
+        <ImageView
+            android:id="@+id/show_botton_bt"
+            android:background="@drawable/common_icon_on_slippery_n"
+            android:layout_centerHorizontal="true"
+            android:layout_width="15dp"
+            android:layout_height="15dp" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

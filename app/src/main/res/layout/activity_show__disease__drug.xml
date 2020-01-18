@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Show_Disease_DrugActivity"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:background="#fff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/disease_drug_imageone"
+            android:layout_width="@dimen/dp_32"
+            android:layout_height="@dimen/dp_32"
+            android:layout_margin="@dimen/dp_12"
+            />
+        <ImageView
+            android:id="@+id/disease_drug_imagetwo"
+            android:layout_alignParentRight="true"
+            android:layout_margin="12dp"
+            android:layout_width="@dimen/dp_32"
+            android:layout_height="@dimen/dp_32" />
+    </RelativeLayout>
+
+    <RadioGroup
+        android:id="@+id/disease_drug_radio"
+        android:layout_marginTop="@dimen/dp_5"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_37"
+        android:orientation="horizontal"
+        >
+        <RadioButton
+            android:id="@+id/disease_drug_btone"
+            android:background="#fff"
+            android:textSize="@dimen/sp_16"
+            android:textColor="#999999"
+            android:gravity="center"
+            android:text="常见病症"
+            android:button="@null"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <RadioButton
+            android:id="@+id/disease_drug_bttwo"
+            android:background="#fff"
+            android:textSize="@dimen/sp_16"
+            android:textColor="#999999"
+            android:text="常见药品"
+            android:gravity="center"
+            android:button="@null"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+    </RadioGroup>
+
+    <FrameLayout
+        android:layout_marginTop="@dimen/dp_4"
+        android:id="@+id/disease_drug_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </FrameLayout>
+
+</LinearLayout>
