@@ -44,28 +44,68 @@ public class Show_Disease_DrugActivity extends BaseActivity {
         int code = getIntent().getIntExtra("code", 0);
         FragmentManager supportFragmentManager = getSupportFragmentManager();
         FragmentTransaction Transaction = supportFragmentManager.beginTransaction();
-
-
-        //1是常见病症2是常见药品
         if (code==1){//常见病症
+            //设置颜色
+            diseaseDrugBtone.setChecked(true);
             showoneCommonSymptomsFragment = new ShowoneCommonSymptomsFragment();
+            //1是常见病症2是常见药品
             Transaction.add(R.id.disease_drug_frame,showoneCommonSymptomsFragment);
             Transaction.show(showoneCommonSymptomsFragment);
             Transaction.commit();
         }else{//常见药品
+            diseaseDrugBttwo.setChecked(true);
             showoneCommonDrugsFragment = new ShowoneCommonDrugsFragment();
             Transaction.add(R.id.disease_drug_frame,showoneCommonDrugsFragment);
             Transaction.show(showoneCommonDrugsFragment);
             Transaction.commit();
         }
-
         //切换选择
         diseaseDrugRadio.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-
+                FragmentManager supportFragmentManager1 = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = supportFragmentManager1.beginTransaction();
+                switch (i){
+                    case R.id.disease_drug_btone://常见病症
+                        if (showoneCommonSymptomsFragment==null){
+                            showoneCommonSymptomsFragment = new ShowoneCommonSymptomsFragment();
+                            fragmentTransaction.add(R.id.disease_drug_frame,showoneCommonSymptomsFragment);
+                            fragmentTransaction.show(showoneCommonSymptomsFragment);
+                            if (showoneCommonDrugsFragment!=null){
+                                fragmentTransaction.hide(showoneCommonDrugsFragment);
+                            }
+                        }else{
+                            fragmentTransaction.show(showoneCommonSymptomsFragment);
+                            if (showoneCommonDrugsFragment!=null){
+                                fragmentTransaction.hide(showoneCommonDrugsFragment);
+                            }
+                        }
+                        break;
+                    case R.id.disease_drug_bttwo://常见药品
+                        if (showoneCommonDrugsFragment==null){
+                            showoneCommonDrugsFragment = new ShowoneCommonDrugsFragment();
+                            fragmentTransaction.add(R.id.disease_drug_frame,showoneCommonDrugsFragment);
+                            fragmentTransaction.show(showoneCommonDrugsFragment);
+                            if (showoneCommonSymptomsFragment != null) {
+                                fragmentTransaction.hide(showoneCommonSymptomsFragment);
+                            }
+                        }else{
+                            fragmentTransaction.show(showoneCommonDrugsFragment);
+                            if (showoneCommonSymptomsFragment != null) {
+                                fragmentTransaction.hide(showoneCommonSymptomsFragment);
+                            }
+                        }
+                        break;
+                }
+                fragmentTransaction.commit();
             }
-        });
-
+         });
+    }
+    //销毁fragment
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        showoneCommonSymptomsFragment=null;
+        showoneCommonDrugsFragment=null;
     }
 }

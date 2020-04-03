@@ -6,7 +6,8 @@
         android:id="@+id/symptoms_left"
         android:layout_width="0dp"
         android:layout_weight="3"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#f2f2f2">
     </androidx.recyclerview.widget.RecyclerView>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/symptoms_right"

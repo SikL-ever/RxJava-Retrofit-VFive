@@ -6,14 +6,16 @@ public class HomepagerWzzxBean {
     public int id;
     public String pic;
     public int rank;
-    public int textcolor = 0xff999999;
+    public String textcolor ="#f2f2f2";
+    public String viewcolor="#f2f2f2";
 
-    public HomepagerWzzxBean(String departmentName, int id, String pic, int rank, int textcolor) {
+    public HomepagerWzzxBean(String departmentName, int id, String pic, int rank, String textcolor, String viewcolor) {
         this.departmentName = departmentName;
         this.id = id;
         this.pic = pic;
         this.rank = rank;
         this.textcolor = textcolor;
+        this.viewcolor = viewcolor;
     }
 
     public String getDepartmentName() {
@@ -48,11 +50,19 @@ public class HomepagerWzzxBean {
         this.rank = rank;
     }
 
-    public int getTextcolor() {
+    public String getTextcolor() {
         return textcolor;
     }
 
-    public void setTextcolor(int textcolor) {
+    public void setTextcolor(String textcolor) {
         this.textcolor = textcolor;
+    }
+
+    public String getViewcolor() {
+        return viewcolor;
+    }
+
+    public void setViewcolor(String viewcolor) {
+        this.viewcolor = viewcolor;
     }
 }

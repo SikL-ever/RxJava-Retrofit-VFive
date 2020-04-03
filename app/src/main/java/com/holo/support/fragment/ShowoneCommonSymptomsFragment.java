@@ -50,6 +50,13 @@ public class ShowoneCommonSymptomsFragment extends BaseFragment {
                 symptomsRightPresenter.getdata(a);
             }
         });
+        symptomsleftAdapter.setOnrecyclerviewlistener(new SymptomsleftAdapter.OnItemClickListener() {
+            @Override
+            public void onClick(int position) {
+                symptomsleftAdapter.setthisPostion(position);
+                symptomsleftAdapter.notifyDataSetChanged();
+            }
+        });
         //右边
         symptomsRightPresenter = new SymptomsRightPresenter(new symptomsright());
         symptomsRightAdapter = new SymptomsRightAdapter(getContext());

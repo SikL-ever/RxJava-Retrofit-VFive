@@ -33,10 +33,11 @@
         android:orientation="horizontal"
         >
         <RadioButton
+            android:checked="true"
             android:id="@+id/disease_drug_btone"
             android:background="#fff"
             android:textSize="@dimen/sp_16"
-            android:textColor="#999999"
+            android:textColor="@color/sele4"
             android:gravity="center"
             android:text="常见病症"
             android:button="@null"
@@ -47,7 +48,7 @@
             android:id="@+id/disease_drug_bttwo"
             android:background="#fff"
             android:textSize="@dimen/sp_16"
-            android:textColor="#999999"
+            android:textColor="@color/sele4"
             android:text="常见药品"
             android:gravity="center"
             android:button="@null"

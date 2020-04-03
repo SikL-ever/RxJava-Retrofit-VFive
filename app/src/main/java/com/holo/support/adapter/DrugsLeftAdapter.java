@@ -1,6 +1,7 @@
 package com.holo.support.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -31,11 +32,21 @@ public class DrugsLeftAdapter extends RecyclerView.Adapter<DrugsLeftAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.drugstext.setText(list.get(position).getName());
+        if (getThisPosition()==position){
+            holder.drugstext.setBackgroundColor(Color.WHITE);
+            holder.drugsview.setBackgroundColor(Color.parseColor("#3087ea"));
+        }else{
+            holder.drugstext.setBackgroundColor(Color.parseColor("#f2f2f2"));
+            holder.drugsview.setBackgroundColor(Color.parseColor("#f2f2f2"));
+        }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (callBack != null) {
                     callBack.callback(list.get(position).getId());
+                }
+                if (onTiemListener!=null){
+                    onTiemListener.OnItem(position);
                 }
             }
         });
@@ -51,11 +62,29 @@ public class DrugsLeftAdapter extends RecyclerView.Adapter<DrugsLeftAdapter.View
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView drugstext;
+        View drugsview;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             drugstext=itemView.findViewById(R.id.drugs_left_text);
+            drugsview=itemView.findViewById(R.id.drugs_left_view);
         }
     }
+    private int position;
+    public void setthisposition(int position){
+        this.position=position;
+    }
+    private int getThisPosition(){
+        return position;
+    }
+    private OnTiemListener onTiemListener;
+    public interface OnTiemListener{
+        void OnItem(int position);
+    }
+
+    public void setOnTiemListener(OnTiemListener onTiemListener) {
+        this.onTiemListener = onTiemListener;
+    }
+
     //接口回调
     public interface  CallBack{
         void callback(int a);

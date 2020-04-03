@@ -1,5 +1,8 @@
 package com.holo.support.fragment;
 
+import android.util.Log;
+
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -38,6 +41,7 @@ public class ShowoneCommonDrugsFragment extends BaseFragment {
     protected void initView() {
         //左边
         drugsLeftPrenter = new DrugsLeftPrenter(new drugsleft());
+        drugsLeftPrenter.getdata();
         drugsLeftAdapter = new DrugsLeftAdapter(getContext());
         showonedrugsOnerecycler.setAdapter(drugsLeftAdapter);
         showonedrugsOnerecycler.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -47,9 +51,18 @@ public class ShowoneCommonDrugsFragment extends BaseFragment {
                 drugsRightPresenter.getdata(a,1,20);
             }
         });
+        drugsLeftAdapter.setOnTiemListener(new DrugsLeftAdapter.OnTiemListener() {
+            @Override
+            public void OnItem(int position) {
+                drugsLeftAdapter.setthisposition(position);
+                drugsLeftAdapter.notifyDataSetChanged();
+            }
+        });
         //右边
         drugsRightPresenter = new DrugsRightPresenter(new drugsright());
         drugsRigheAdapter = new DrugsRigheAdapter(getContext());
+        showonedrugsTworecycler.setAdapter(drugsRigheAdapter);
+        showonedrugsTworecycler.setLayoutManager(new GridLayoutManager(getContext(),3));
     }
     //左边
     class drugsleft implements MyView<List<DrugsBean>>{
