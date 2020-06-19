@@ -78,7 +78,7 @@ public class ShowOneFragment extends BaseFragment {
             Glide.with(getContext()).load(R.drawable.register_icon_invitatiion_code_n).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(oneUserImage);
         } else {
             List<String> dao = LoginDaoUtil.getInstance().findDao(getContext());
-            Glide.with(getContext()).load(dao.get(2)).apply(RequestOptions.bitmapTransform(new CenterCrop())).into(oneUserImage);
+            Glide.with(getContext()).load(dao.get(2)).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(oneUserImage);
         }
         //搜索点击跳转
         showOneBt.setOnClickListener(new View.OnClickListener() {
